@@ -1,0 +1,12 @@
+python3 -m torch.distributed.launch --nproc_per_node=2 run_seq_labeling.py \
+        --data_dir '../../../../../kaggle/working/dataset' \
+        --labels '../../../../../kaggle/working/dataset/labels.txt' \
+        --model_name_or_path "../../../../../kaggle/working/layoutlm-base-uncased/" \
+        --model_type layoutlm \
+        --do_lower_case \
+        --max_seq_length 512 \
+        --do_predict \
+        --logging_steps 10 \
+        --save_steps -1 \
+        --output_dir output \
+        --per_gpu_eval_batch_size 8
